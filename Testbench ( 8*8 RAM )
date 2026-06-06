@@ -1,0 +1,105 @@
+//Verilog Testbench for 8*8 RAM 
+
+`timescale 1ns / 1ps
+
+module RAM_8_8_test(
+
+    );
+    
+    reg clk,rst,w_enb;
+    reg [2:0] write_address,read_address;
+    reg [7:0] din;
+    wire [7:0] dout;
+        
+    RAM_8_8 r1(clk,rst,w_enb,write_address,read_address,din ,dout);
+    
+    initial begin 
+    {clk,rst}=1'b0;
+    end
+    
+    
+    always #5 clk = ~clk;
+    
+    
+    initial begin 
+    
+    w_enb=1'b1;
+    rst=1'b1;
+    #10
+    
+    rst = 1'b0;
+    
+    write_address = 3'b000;
+    din = 8'b10101101;
+    #10
+    
+    write_address=3'b110;
+    din = 8'b10111101;
+    #10
+    
+    write_address=3'b101;
+    din = 8'b00101001;
+    #10
+    
+    write_address = 3'b011;
+    din = 8'b11100010;
+    #10
+    
+    write_address = 3'b111;
+    din = 8'b01010101;
+    #10
+    
+    write_address = 3'b001;
+    din = 8'b11001100;
+    #10
+    
+    write_address = 3'b010;
+    din = 8'b00011110;
+    #10
+    
+    write_address = 3'b100;
+    din = 8'b00000101;
+    #10
+    
+    w_enb=1'b0;
+    #10
+    
+     read_address = 3'b001;
+     #10
+     
+     read_address = 3'b101;
+     #10
+     
+     read_address = 3'b110;
+     #10
+     
+     read_address = 3'b111;
+     #10
+     
+     rst=1'b1;
+     
+    
+    
+     end
+endmodule   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
