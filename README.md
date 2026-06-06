@@ -1,7 +1,5 @@
 # 8x8 Synchronous RAM in Verilog
 
-# 8x8 Synchronous RAM in Verilog
-
 ## 📌 Project Overview
 This repository contains a fully synthesizable **8x8 Synchronous Single-Port RAM** design implemented in Verilog HDL. The module supports stable clock-driven read and write operations,
 features an active-high asynchronous reset to clear memory contents, and implements structural priority logic to prevent resource contention. 
